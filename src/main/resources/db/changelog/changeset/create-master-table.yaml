@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: creation-master-table
+      author: Yury
+      changes:
+        - createTable:
+            tableName: master
+            remarks: Руководители
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(200)
+              - column:
+                  name: department_id
+                  type: int
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: master
+            baseColumnNames: department_id
+            referencedTableName: "department"
+            referencedColumnNames: id
+            constraintName: master-department-fk
+            onDelete: SET NULL

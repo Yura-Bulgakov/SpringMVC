@@ -1,0 +1,134 @@
+databaseChangeLog:
+  - changeSet:
+      id: inserting-initial-data
+      author: Yury
+      changes:
+        - insert:
+            tableName: department
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: name
+                  value: Otdel1
+
+        - insert:
+            tableName: department
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: name
+                  value: Otdel2
+
+        - insert:
+            tableName: master
+            columns:
+                - column:
+                    name: name
+                    value: Ivan
+                - column:
+                    name: surname
+                    value: Ivanov
+                - column:
+                    name: department_id
+                    value: "1"
+
+        - insert:
+            tableName: master
+            columns:
+              - column:
+                  name: name
+                  value: Andrew
+              - column:
+                  name: surname
+                  value: Petrov
+              - column:
+                  name: department_id
+                  value: "1"
+
+        - insert:
+            tableName: master
+            columns:
+              - column:
+                  name: name
+                  value: Oleg
+              - column:
+                  name: surname
+                  value: Olegov
+              - column:
+                  name: department_id
+                  value: "2"
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy1
+              - column:
+                  name: surname
+                  value: Rabotnin
+              - column:
+                  name: master_id
+                  value: "1"
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy2
+              - column:
+                  name: surname
+                  value: Rabotnin
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy3
+              - column:
+                  name: surname
+                  value: Rabotnin
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy4
+              - column:
+                  name: surname
+                  value: Rabotnin
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy5
+              - column:
+                  name: surname
+                  value: Rabotnin
+
+        - insert:
+            tableName: slave
+            columns:
+              - column:
+                  name: name
+                  value: Rabochiy6
+              - column:
+                  name: surname
+                  value: Rabotnin
+
+
+
+
+
+
+
+

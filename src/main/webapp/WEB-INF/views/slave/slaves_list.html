@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Slaves</title>
+</head>
+<body>
+<h2>Slave list</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Master</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="slave : ${slaves}">
+        <td th:text="${slave.id}"></td>
+        <td th:text="${slave.name}"></td>
+        <td th:text="${slave.surname}"></td>
+        <td th:text="${slave.master != null ? slave.master.department.name : ''}"></td>
+        <td th:text="${slave.master != null ? slave.master.name : ''}"></td>
+        <td>
+            <a th:href="@{/slaves/{id}(id=${slave.id})}">View</a>
+            <a th:href="@{/slaves/{id}/edit(id=${slave.id})}">Edit</a>
+        </td>
+    </tr>
+</table>
+<br/>
+<a th:href="@{/slaves/new}">Create New Slave</a>
+<br/>
+<a th:href="@{/masters}">Go to Master list</a>
+</body>
+</html>

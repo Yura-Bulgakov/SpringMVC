@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create Slave</title>
+</head>
+<body>
+
+<h2>Create Slave</h2>
+
+<form th:method="POST" th:action="@{/slaves/new}" th:object="${slave}" >
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Surname: <input type="text" th:field="*{surname}"/><br/>
+    Master:
+    <select th:field="*{master}" required>
+        <option th:each="master : ${masters}" th:value="${master}" th:text="${master.name}"></option>
+    </select><br/>
+
+    <input type="submit" value="Create"/>
+</form>
+<br/>
+<a th:href="@{/slaves}">Back to Slave List</a>
+
+</body>
+</html>

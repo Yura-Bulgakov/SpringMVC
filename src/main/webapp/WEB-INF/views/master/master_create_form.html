@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Create Master</title>
+</head>
+<body>
+<h2>Create master</h2>
+
+<form th:method="POST" th:action="@{/masters/new}" th:object="${master}">
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Surname: <input type="text" th:field="*{surname}"/><br/>
+    Department:
+    <select th:field="*{department}">
+        <option th:each="department : ${departments}" th:value="${department}" th:text="${department.name}"></option>
+    </select><br/>
+
+    <input type="submit" value="Create"/>
+</form>
+
+<a th:href="@{/masters}">Back to Master list</a>
+
+</body>
+</html>

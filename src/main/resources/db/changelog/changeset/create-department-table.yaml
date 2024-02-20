@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: creation-department-table
+      author: Yury
+      changes:
+        - createTable:
+            tableName: department
+            remarks: Отделы
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false

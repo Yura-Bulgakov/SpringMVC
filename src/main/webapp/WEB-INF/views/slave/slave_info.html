@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Slave info</title>
+</head>
+<body>
+<h2>Slave info</h2>
+
+<p><strong>ID:</strong> <span th:text="${slave.id}"></span></p>
+<p><strong>Name:</strong> <span th:text="${slave.name}"></span></p>
+<p><strong>Surname:</strong> <span th:text="${slave.surname}"></span></p>
+<p><strong>Department:</strong> <span th:text="${slave.master != null ? slave.master.department.name : ''}"></span></p>
+<p><strong>Master:</strong> <span th:text="${slave.master != null ? slave.master.name : ''}"></span></p>
+<br/>
+<a th:href="@{/slaves}">Back to Slave List</a>
+<br/>
+<form th:method="DELETE" th:action="@{/slaves/{id}(id=${slave.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

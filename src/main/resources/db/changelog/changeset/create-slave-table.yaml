@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: creation-slave-table
+      author: Yury
+      changes:
+        - createTable:
+            tableName: slave
+            remarks: Подчиненные
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(200)
+              - column:
+                  name: master_id
+                  type: int
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: slave
+            baseColumnNames: master_id
+            referencedTableName: "master"
+            referencedColumnNames: id
+            constraintName: slave-master-fk
+            onDelete: SET NULL

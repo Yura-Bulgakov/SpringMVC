@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Master info</title>
+</head>
+<body>
+<h2>Master info</h2>
+
+<p><strong>ID:</strong> <span th:text="${master.id}"></span></p>
+<p><strong>Name:</strong> <span th:text="${master.name}"></span></p>
+<p><strong>Surname:</strong> <span th:text="${master.surname}"></span></p>
+<p><strong>Department:</strong> <span th:text="${master.department != null ? master.department.name : ''}"></span></p>
+<br/>
+<a th:href="@{/slaves/byMasterId(masterId=${master.id})}">See master slaves</a>
+<br/>
+<a th:href="@{/masters}">Back to Master list</a>
+<br/>
+<form th:method="DELETE" th:action="@{/masters/{id}(id=${master.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
